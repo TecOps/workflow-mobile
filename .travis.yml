@@ -1,0 +1,28 @@
+language: android
+
+android:
+  components:
+    - build-tools-28.0.3
+    - android-27
+    - android-21
+    - sys-img-armeabi-v7a-android-21
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
+before_script:
+  - chmod +x gradlew
+  - android list targets
+  - echo no | android create avd --force -n test -t android-21 --abi armeabi-v7a
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
+
+notifications:
+  email:
+    recipients:
+      - akalanka345@gmail.com
+      - Kalpa.wijesooriya94@gmai.com
+      - ahmedifhaam1@gmail.com
+    on_failure: always # default: always

@@ -1,0 +1,11 @@
+*.iml
+.gradle
+/local.properties
+
+#ignore " .idea " folder
+/.idea
+
+.DS_Store
+/build
+/captures
+.externalNativeBuild
