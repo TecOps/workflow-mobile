@@ -24,7 +24,7 @@ public class login_page extends AppCompatActivity {
 
     public void onClickTextViewListener(){
 
-             resetPassword =  findViewById(R.id.textView2);
+          
              resetPassword.setOnClickListener(
                      new View.OnClickListener() {
                          @Override
