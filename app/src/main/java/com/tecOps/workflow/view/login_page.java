@@ -23,7 +23,12 @@ public class login_page extends AppCompatActivity {
 
 
     public void onClickTextViewListener(){
+
         resetPassword=(TextView)findViewById(R.id.link_fogot);
+
+
+          
+
              resetPassword.setOnClickListener(
                      new View.OnClickListener() {
                          @Override

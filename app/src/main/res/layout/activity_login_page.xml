@@ -65,6 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/login"
+            android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="16sp"
             android:fontFamily="@font/poppinsbold"

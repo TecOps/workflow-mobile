@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Work Flow</string>
     <string name="forget_password"><u>Forget Password</u></string>
-    <string name="login">LOGIN</string>
+    <string name="login">Login</string>
     <string name="username_or_email">Username or email</string>
     <string name="password">Password</string>
     <string name="recover_text">Please enter your email address. \nYou will receive a link to create a new password via email</string>
