@@ -17,20 +17,23 @@ public class login_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        //TextView resetPassword = findViewById(R.id.textView2);
 
-       // resetPassword.setPaintFlags(resetPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         onClickTextViewListener();
     }
 
+
     public void onClickTextViewListener(){
 
-             resetPassword =  findViewById(R.id.textView2);
+        resetPassword=(TextView)findViewById(R.id.link_fogot);
+
+
+          
+
              resetPassword.setOnClickListener(
                      new View.OnClickListener() {
                          @Override
                          public void onClick(View view) {
-                             Intent intent = new Intent("com.tecOps.workflow.forgot_pw");
+                             Intent intent = new Intent(getApplicationContext(),forgot_pw.class);
                              startActivity(intent);
                          }
                      }

@@ -5,94 +5,106 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/res2">
+    android:background="@drawable/background">
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="340dp"
-        android:layout_height="80dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="189dp"
-        app:srcCompat="@drawable/res4" />
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="208dp"
-        android:ems="10"
-        android:hint="Enter the recovery Email"
-        android:inputType="textEmailAddress"
-        android:textAlignment="viewStart" />
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:adjustViewBounds="false"
-        app:srcCompat="@drawable/res1"
-        tools:layout_centerHorizontal="true" />
+        <ImageView
+
+            android:id="@+id/imageView"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logo" />
+
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/poppinsbold"
+            android:text="@string/forget_your_password"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/poppinsregular"
+            android:text="@string/recover_text"
+            android:textAlignment="center"
+            android:textSize="13sp" />
+
+
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/editText2"
+            android:textColorHint="@color/colorPrimary"
+            android:layout_marginRight="-12dp"
+            android:layout_marginLeft="-12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text"
+            android:ems="10"
+            android:hint="Enter Email for recovery"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="20dp"
+            android:textAlignment="viewStart" />
+
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="137dp"
-        android:background="@drawable/rec5h"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Submit"
+        android:background="@drawable/login"
+        android:fontFamily="@font/poppinsbold"
+        android:text="@string/submit"
+        android:layout_marginBottom="10dp"
+        android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="83dp"
-        android:background="@drawable/rec6h"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="Back to login"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/backtologin"
+        android:fontFamily="@font/poppinsbold"
+        android:text="@string/back_to_login"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="149dp"
-        android:fontFamily="sans-serif"
-        android:text=" Forget Your Password.."
-        android:textAlignment="center"
-        android:textColor="@color/colorPrimary"
-        android:textSize="24sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView9"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="49dp"
-        android:text="Please enter your email address.You will receive a link to create a new password via email"
-        android:textAlignment="center" />
-
+    </android.support.v7.widget.LinearLayoutCompat>
 </RelativeLayout>
 
 
