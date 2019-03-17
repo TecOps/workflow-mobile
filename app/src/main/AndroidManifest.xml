@@ -5,17 +5,15 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.tecOps.workflow.view.login_page"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            >
-
-        </activity>
+        <activity
+            android:name="com.tecOps.workflow.view.login_page"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name="com.tecOps.workflow.view.MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -24,6 +22,21 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name="com.tecOps.workflow.forgot_pw">
+            <intent-filter> 
+                <action android:name="com.tecOps.workflow.forgot_pw" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+
+
         </activity>
     </application>
 
