@@ -1,4 +1,4 @@
-package com.tecOps.workflow;
+package com.tecOps.workflow.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

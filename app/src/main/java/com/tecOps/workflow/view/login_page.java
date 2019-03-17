@@ -23,13 +23,12 @@ public class login_page extends AppCompatActivity {
 
 
     public void onClickTextViewListener(){
-
-             resetPassword =  findViewById(R.id.textView2);
+        resetPassword=(TextView)findViewById(R.id.link_fogot);
              resetPassword.setOnClickListener(
                      new View.OnClickListener() {
                          @Override
                          public void onClick(View view) {
-                             Intent intent = new Intent("com.tecOps.workflow.forgot_pw");
+                             Intent intent = new Intent(getApplicationContext(),forgot_pw.class);
                              startActivity(intent);
                          }
                      }

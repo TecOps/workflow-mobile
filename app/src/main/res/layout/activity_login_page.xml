@@ -15,43 +15,39 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="56dp"
+        android:paddingTop="30dp"
         android:paddingLeft="24dp"
         android:paddingRight="24dp">
 
 
-        <ImageView android:src="@drawable/logo"
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/logo" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_height="60dp"
 
-            android:layout_marginBottom="8dp">
             <EditText android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="15dp"
                 android:textSize="15sp"
+                android:layout_marginRight="-12dp"
+                android:layout_marginLeft="-12dp"
                 android:textColor="@color/colorTextinput"
                 android:background="@drawable/text"
                 android:inputType="textEmailAddress"
+                android:textColorHint="@color/colorPrimary"
                 android:hint="@string/username_or_email" />
-        </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="8dp"
 
-            android:layout_marginBottom="8dp">
+
             <EditText android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="-12dp"
+                android:layout_marginLeft="-12dp"
                 android:inputType="textPassword"
                 android:textColor="@color/colorTextinput"
                 android:background="@drawable/text"
@@ -59,33 +55,37 @@
                 android:textSize="15sp"
                 android:paddingLeft="15dp"
                 android:hint="@string/password"/>
-        </android.support.design.widget.TextInputLayout>
+
 
 
 
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/login"
             android:textColor="@color/colorWhite"
-            android:textSize="14sp"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppinsbold"
             android:background="@drawable/login"
             android:textStyle="bold"
             android:layout_marginBottom="6dp"
             android:padding="12dp"
             />
 
-        <TextView android:id="@+id/link_signup"
+        <TextView
+            android:id="@+id/link_fogot"
+            android:layout_marginTop="15dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="@string/forget_password"
+            android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/colorPrimary"
             android:textAllCaps="false"
             android:gravity="center"
-            android:textSize="12dip"/>
+            android:textSize="14dip"/>
 
 
 

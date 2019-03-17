@@ -4,4 +4,8 @@
     <string name="login">LOGIN</string>
     <string name="username_or_email">Username or email</string>
     <string name="password">Password</string>
+    <string name="recover_text">Please enter your email address. \nYou will receive a link to create a new password via email</string>
+    <string name="submit">Submit</string>
+    <string name="forget_your_password">Forget Your Password..?</string>
+    <string name="back_to_login">Back to login</string>
 </resources>
