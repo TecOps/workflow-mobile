@@ -1,23 +1,42 @@
 package com.tecOps.workflow.view;
 
-import android.graphics.Paint;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.kalpa.workflow.R;
 
 public class login_page extends AppCompatActivity {
 
+    public static TextView resetPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
 
-        TextView resetPassword= findViewById(R.id.textView2);
+        //TextView resetPassword = findViewById(R.id.textView2);
 
-        resetPassword.setPaintFlags(resetPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-
+       // resetPassword.setPaintFlags(resetPassword.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        onClickTextViewListener();
     }
-}
+
+    public void onClickTextViewListener(){
+
+             resetPassword =  findViewById(R.id.textView2);
+             resetPassword.setOnClickListener(
+                     new View.OnClickListener() {
+                         @Override
+                         public void onClick(View view) {
+                             Intent intent = new Intent("com.tecOps.workflow.forgot_pw");
+                             startActivity(intent);
+                         }
+                     }
+             );
+
+
+        }
+    }
+
