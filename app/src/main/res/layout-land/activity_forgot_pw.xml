@@ -36,7 +36,7 @@
         android:text="@string/forget_your_password"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:textSize="28sp"
+        android:textSize="20sp"
         android:textStyle="bold" />
 
     <TextView
@@ -45,24 +45,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="20dp"
-        android:textSize="18sp"
+        android:textSize="13sp"
         android:fontFamily="@font/poppinsregular"
         android:text="@string/recover_text"
         android:textAlignment="center" />
     <EditText
-        android:textColorHint="@color/colorPrimary"
-        android:layout_marginLeft="-20dp"
-        android:layout_marginRight="-20dp"
+        android:drawableStart="@drawable/email"
+        android:textColorHint="@color/colorTextinput"
         android:id="@+id/editText2"
+        android:textSize="16sp"
+        android:textColor="@color/colorTextinput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:paddingLeft="35dp"
-        android:background="@drawable/text"
-        android:hint="Enter the recovery Email"
+        android:paddingLeft="10dip"
+        android:background="@drawable/edit_text"
+        android:hint=" Enter the recovery Email"
         android:inputType="textEmailAddress"
         android:textAlignment="viewStart" />
 
@@ -81,7 +82,7 @@
         android:text="Submit"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="22sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
     <Button
@@ -97,7 +98,7 @@
         android:textAllCaps="false"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="22sp"
+        android:textSize="16sp"
         android:textStyle="bold" />
 
 

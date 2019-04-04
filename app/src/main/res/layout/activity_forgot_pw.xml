@@ -55,19 +55,20 @@
 
 
         <EditText
+            android:drawableStart="@drawable/email"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:id="@+id/editText2"
-            android:textColorHint="@color/colorPrimary"
-            android:layout_marginRight="-12dp"
-            android:layout_marginLeft="-12dp"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextinput"
+            android:textColorHint="@color/colorTextinput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/text"
+            android:layout_height="45dp"
+            android:background="@drawable/edit_text"
             android:ems="10"
-            android:hint="Enter Email for recovery"
+            android:hint=" Enter Email for recovery"
             android:inputType="textEmailAddress"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dip"
             android:textAlignment="viewStart" />
 
 
