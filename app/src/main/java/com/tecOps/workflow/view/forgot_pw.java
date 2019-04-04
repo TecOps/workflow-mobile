@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
-import com.kalpa.workflow.R;
+import com.tecOps.workflow.R;
 
 
 public class forgot_pw extends AppCompatActivity {

@@ -1,45 +1,37 @@
 package com.tecOps.workflow.view;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.TextView;
 
-import com.kalpa.workflow.R;
+import android.graphics.Paint;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+import android.databinding.BindingAdapter;
+import android.databinding.DataBindingUtil;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
+
+import com.tecOps.workflow.databinding.ActivityLoginPageBinding;
+import com.tecOps.workflow.R;
+import com.tecOps.workflow.viewModel.LoginViewModel;
+
 
 public class login_page extends AppCompatActivity {
-
-    public static TextView resetPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_page);
+        ActivityLoginPageBinding activityLoginPageBinding = DataBindingUtil.setContentView(this, R.layout.activity_login_page);
+        activityLoginPageBinding.setViewModel(new LoginViewModel());
+        activityLoginPageBinding.executePendingBindings();
 
-
-        onClickTextViewListener();
     }
 
-
-    public void onClickTextViewListener(){
-
-        resetPassword=(TextView)findViewById(R.id.link_fogot);
-
-
-          
-
-             resetPassword.setOnClickListener(
-                     new View.OnClickListener() {
-                         @Override
-                         public void onClick(View view) {
-                             Intent intent = new Intent(getApplicationContext(),forgot_pw.class);
-                             startActivity(intent);
-                         }
-                     }
-             );
-
-
-        }
+    @BindingAdapter({"toastMessage"})
+    public static void runMe(View view, String message) {
+        if (message != null)
+            Toast.makeText(view.getContext(), message, Toast.LENGTH_SHORT).show();
     }
-
+}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.kalpa.workflow">
+    package="com.tecOps.workflow">
 
     <application
         android:allowBackup="true"
@@ -12,11 +12,8 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.tecOps.workflow.view.login_page"
-           ></activity>
-        <activity
-            android:name="com.tecOps.workflow.view.MainActivity"
-        >
+            android:name="com.tecOps.workflow.view.login_page"></activity>
+        <activity android:name="com.tecOps.workflow.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
