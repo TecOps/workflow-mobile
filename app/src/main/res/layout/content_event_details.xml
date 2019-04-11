@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".view.Event_details"
+    tools:showIn="@layout/app_bar_event_details">
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.event_details"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="11"
+                android:background="#9AFFFFFF"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp">
+
+                <ScrollView
+                    android:id="@+id/sc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/tickIcon"
+                            android:layout_width="60dp"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintBottom_toTopOf="@+id/divider"
+                            app:layout_constraintEnd_toStartOf="@+id/txtEventtitle"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.52"
+                            app:srcCompat="@drawable/tick" />
+
+                        <TextView
+                            android:id="@+id/txtEventtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text=" IM Cricket Match 2019"
+                            android:textAlignment="viewStart"
+                            android:textSize="24sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tickIcon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/txtDateTimeVenue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="11th January | 9 am onwards | Cybe Grounds"
+                            android:textAlignment="viewStart"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/tickIcon"
+                            app:layout_constraintTop_toBottomOf="@+id/txtEventtitle"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <View
+                            android:id="@+id/divider"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="?android:attr/listDivider"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtEventtitle" />
+
+                        <TextView
+                            android:id="@+id/txtOrganize"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="9dp"
+                            android:text="Organized By "
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtCordinators"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtDateTimeVenue" />
+
+                        <TextView
+                            android:id="@+id/txtCordinators"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="Co ordinators"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtParticipants"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtOrganizeData" />
+
+                        <TextView
+                            android:id="@+id/txtParticipants"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="26dp"
+                            android:text="Prticipants"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtDescription"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtCordinatorsData" />
+
+                        <TextView
+                            android:id="@+id/txtDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="8dp"
+                            android:text="Description--"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtDescriptionData"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtParticipantsData" />
+
+                        <TextView
+                            android:id="@+id/txtApprovedBy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="8dp"
+                            android:text="Approved By--"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/userIconLarge"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtDescriptionData" />
+
+                        <TextView
+                            android:id="@+id/txtOrganizeData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="12dp"
+                            android:text="sample text sample text"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.081"
+                            app:layout_constraintStart_toEndOf="@+id/txtOrganize"
+                            app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+                        <TextView
+                            android:id="@+id/txtCordinatorsData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:text="sample text sample text"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.139"
+                            app:layout_constraintStart_toEndOf="@+id/txtCordinators"
+                            app:layout_constraintTop_toBottomOf="@+id/txtOrganizeData" />
+
+                        <TextView
+                            android:id="@+id/txtParticipantsData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="sample text sample text"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.211"
+                            app:layout_constraintStart_toEndOf="@+id/txtParticipants"
+                            app:layout_constraintTop_toBottomOf="@+id/txtCordinatorsData" />
+
+                        <TextView
+                            android:id="@+id/txtApprovedName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Ruwan Wicramarachchi"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toTopOf="@+id/txtApprovedPosition"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.13"
+                            app:layout_constraintStart_toEndOf="@+id/userIconLarge"
+                            app:layout_constraintTop_toBottomOf="@+id/txtApprovedBy" />
+
+                        <TextView
+                            android:id="@+id/txtApprovedPosition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="18dp"
+                            android:text="HOD"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.08"
+                            app:layout_constraintStart_toEndOf="@+id/userIconLarge"
+                            app:layout_constraintTop_toBottomOf="@+id/txtApprovedName" />
+
+                        <TextView
+                            android:id="@+id/txtDescriptionData"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="On July 16, 1969, the Apollo 11 spacecraft launched from the Kennedy Space Center in Florida. Its mission was to go where no human being had gone before—the moon! The crew consisted of Neil Armstrong, Michael Collins, and Buzz Aldrin. The spacecraft landed on the moon in the Sea of Tranquility, a basaltic flood plain, on July 20, 1969. The moonwalk took place the following day. On July 21, 1969, at precisely 10:56 EDT, Commander Neil Armstrong emerged from the Lunar Module and took On July 16, 1969, the Apollo 11 spacecraft launched from the Kennedy Space Center in Florida. Its mission was to go where no human being had gone before—the moon! The crew consisted of Neil Armstrong, Michael Collins, and Buzz Aldrin. The spacecraft landed on the moon in the Sea of Tranquility, a basaltic flood plain, on July 20, 1969. The moonwalk took place the following day. On July 21, 1969, at precisely 10:56 EDT, Commander Neil Armstrong emerged from the Lunar Module and took his famous first step onto the moon’s surface. He declared, “That’s one small step for man, one giant leap for mankind.” It was a monumental moment in human history! his famous first step onto the moon’s surface. He declared, “That’s one small step for man, one giant leap for mankind.” It was a monumental moment in human history!"
+                            android:textAlignment="viewStart"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/txtApprovedBy"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
+
+                        <ImageView
+                            android:id="@+id/userIconLarge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@color/colorWhite"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.028"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtApprovedBy"
+                            app:srcCompat="@drawable/user_icon_sample" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+
+                </ScrollView>
+
+                <android.support.design.widget.FloatingActionButton
+
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/sc"
+                    android:layout_alignBottom="@+id/sc"
+                    android:layout_marginEnd="9dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#00FFFFFF"
+                    app:srcCompat="@android:drawable/ic_dialog_email" />
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btnCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/repple_effect_login"
+                android:fontFamily="@font/poppinsbold"
+                android:text="Open Calendar"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
+
+</android.support.constraint.ConstraintLayout>

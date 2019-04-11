@@ -2,11 +2,18 @@
     <string name="app_name">Work Flow</string>
     <string name="forget_password"><u>Forget Password</u></string>
     <string name="login">Login</string>
-    <string name="username_or_email">Username or email</string>
+    <string name="username_or_email">Username</string>
     <string name="password">Password</string>
     <string name="recover_text">Please enter your email address. \nYou will receive a link to create a new password via email</string>
     <string name="submit">Submit</string>
     <string name="forget_your_password">Forget Your Password..?</string>
     <string name="back_to_login">Back to login</string>
     <string name="todo">TODO</string>
+    <string name="title_activity_event_details">Event_details</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
