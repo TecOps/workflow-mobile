@@ -1,19 +1,14 @@
 package com.tecOps.workflow.viewModel;
 
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.widget.Toast;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.tecOps.workflow.model.LoginModel;
-import com.tecOps.workflow.remote.APIService;
 import com.tecOps.workflow.remote.AppStatus;
-import com.tecOps.workflow.repository.LoginReository;
-import com.tecOps.workflow.view.MainActivity;
+import com.tecOps.workflow.repository.LoginRepository;
 import com.tecOps.workflow.view.login_page;
 
 public class LoginViewModel extends BaseObservable {
@@ -76,8 +71,8 @@ public class LoginViewModel extends BaseObservable {
           else if (getUserPassword() == "")
               setToastMessage("Please Enter Your Password");
           else {
-              LoginReository loginReository = new LoginReository(context, loginModel);
-              loginReository.sendPost(getUserEmail().trim(), getUserPassword().trim());
+              LoginRepository loginRepository = new LoginRepository(context, loginModel);
+              loginRepository.sendPost(getUserEmail().trim(), getUserPassword().trim());
             //  login_page.ShowAnimation();
           }
       }else {

@@ -9,7 +9,7 @@ import com.tecOps.workflow.model.LoginModel;
 import com.tecOps.workflow.remote.APIService;
 import com.tecOps.workflow.remote.ApiUtils;
 import com.tecOps.workflow.remote.AppStatus;
-import com.tecOps.workflow.view.Event_details;
+import com.tecOps.workflow.view.EventDetails;
 import com.tecOps.workflow.view.login_page;
 
 import retrofit2.Call;
@@ -18,13 +18,13 @@ import retrofit2.Response;
 
 import static android.content.ContentValues.TAG;
 
-public class LoginReository extends BaseObservable {
+public class LoginRepository extends BaseObservable {
     private APIService mAPIService;
     private LoginModel loginModel;
     private Context context;
     private AppStatus AppStatus;
     private login_page login_page;
-    public LoginReository(Context context,LoginModel loginModel){
+    public LoginRepository(Context context, LoginModel loginModel){
         this.context=context;
         this.loginModel=loginModel;
         this.AppStatus=new AppStatus();
@@ -32,9 +32,9 @@ public class LoginReository extends BaseObservable {
     }
     public void sendPost(String userName,String passWord) {
 
-        mAPIService = ApiUtils.getAPIService();
+        mAPIService = ApiUtils.getLoginAPIService();
         LoginModel login=new LoginModel(userName,passWord,"");
-        Call<LoginModel> call=mAPIService.savePost(login);
+        Call<LoginModel> call=mAPIService.loginPost(login);
         call.enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
@@ -44,7 +44,7 @@ public class LoginReository extends BaseObservable {
                     } else if (response.code() == 200) {
                         //login_page.HideAnimation();
                         Toast.makeText(context, response.body().getToken(), Toast.LENGTH_SHORT).show();
-                        Intent i=new Intent(context, Event_details.class);
+                        Intent i=new Intent(context, EventDetails.class);
                         context.startActivity(i);
                     }
 

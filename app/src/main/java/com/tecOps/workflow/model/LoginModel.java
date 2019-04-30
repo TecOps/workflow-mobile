@@ -3,7 +3,6 @@ package com.tecOps.workflow.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.tecOps.workflow.repository.LoginReository;
 
 public class LoginModel {
     @SerializedName("username")

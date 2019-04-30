@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
+
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -16,11 +17,12 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".view.Event_details"
+            android:name=".view.MainActivity"
+            android:parentActivityName=".view.EventDetails"
             android:label="@string/title_activity_event_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".view.login_page" />
-        <activity android:name=".view.MainActivity">
+        <activity android:name=".view.EventDetails">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,6 +41,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
