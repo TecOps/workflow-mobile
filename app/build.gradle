@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    dataBinding.enabled = true
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.tecOps.workflow"
@@ -20,6 +21,13 @@ android {
         enabled = true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
 }
 
 dependencies {
@@ -39,12 +47,28 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
 
     // Retrofit
+
+    implementation 'com.squareup.retrofit2:converter-scalars:2.2.0'
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
-
     implementation('com.squareup.retrofit2:retrofit:2.1.0') {
         exclude module: 'okhttp'
     }
 
+    //slide page
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+    implementation 'jp.wasabeef:blurry:2.1.1'
+    implementation 'com.github.navasmdc:MaterialDesign:1.5@aar'
+   //Calender
+    implementation 'com.applandeo:material-calendar-view:1.5.1'
+
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    //add recycle view and card view
+    implementation 'com.android.support:cardview-v7:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    implementation 'org.apache.commons:commons-lang3:3.7'
 }

@@ -76,13 +76,13 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="15dp"
-        android:background="@drawable/login"
+        android:background="@drawable/repple_effect_login"
         android:fontFamily="@font/poppinsbold"
         android:textAllCaps="false"
         android:text="Submit"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
-        android:textSize="16sp"
+        android:textSize="15sp"
         android:textStyle="bold" />
 
     <Button
@@ -92,7 +92,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/backtologin"
+        android:background="@drawable/effect_back"
         android:fontFamily="@font/poppinsbold"
         android:text="@string/back_to_login"
         android:textAllCaps="false"

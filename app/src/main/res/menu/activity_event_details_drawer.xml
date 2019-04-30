@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:iconTint="@color/colorWhite"
+            android:id="@+id/nav_newEvent"
+            android:icon="@drawable/plus"
+            android:title="Add New Event" />
+        <item
+            android:iconTint="@color/colorWhite"
+            android:id="@+id/nav_Calender"
+            android:icon="@drawable/calendar"
+            android:title="Events Calender" />
+        <item
+            android:iconTint="@color/colorWhite"
+            android:id="@+id/nav_Explorer"
+            android:icon="@drawable/torch"
+            android:title="Event Explorer" />
+        <item
+            android:iconTint="@color/colorWhite"
+            android:id="@+id/nav_History"
+            android:icon="@drawable/historybutton"
+            android:title="History" />
+    </group>
+
+    <item>
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/settings"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/logout"
+                android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>
