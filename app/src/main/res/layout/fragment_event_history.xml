@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <TextView
+        android:id="@+id/title_history"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="History"
+        android:layout_margin="40px"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_margin="40px"
+        android:padding="10px"
+        android:layout_height="40dp"
+        android:background="@color/colorbackground"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:fontFamily="@font/poppinsregular"
+        android:hint="@string/search_event"
+        android:paddingLeft="5dp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/title_history"
+        android:textColorHint="@color/colorHeader"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/torch"
+        android:layout_centerInParent="true"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Events to show"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/icon"/>
+
+</RelativeLayout>
