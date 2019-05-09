@@ -56,7 +56,8 @@ public class EventRepository extends Observable {
                     eventModel.seteventlocationdate(dateAndTime.convertDate(event.getEventDate()) + " | " + dateAndTime.convertTime(event.getEventStartTime()) + " onwards | " + event.getEventLocation());
                     eventModel.setEventName(event.getEventName());
                     eventModel.setEventParticipants(event.getEventParticipants());
-                    // eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails().);
+                    eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails());
+                    eventModel.setStatus(event.getEventStatus());
                 }
 
                 if (response.isSuccessful()) {
@@ -80,8 +81,7 @@ public class EventRepository extends Observable {
     public static void searchMonthEvents(String year, String month) {
 
         mAPIService = ApiUtils.getEventAPIService();
-        EventModel eventModel = new EventModel(month, year);
-        Call<List<EventModel>> call = mAPIService.monthEvents(eventModel);
+        Call<List<EventModel>> call = mAPIService.filter(year,month);
         call.enqueue(new Callback<List<EventModel>>() {
             @Override
              public void onResponse(Call <List<EventModel>> call, Response  <List<EventModel>> response) {
