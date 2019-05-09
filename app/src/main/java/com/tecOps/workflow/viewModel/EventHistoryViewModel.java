@@ -20,4 +20,5 @@ public class EventHistoryViewModel extends ViewModel
             this.EventTitle = eventModel.getEventName();
             this.EventDetails = eventModel.getEventDescription();
     }
+    public EventHistoryViewModel(){}
 }

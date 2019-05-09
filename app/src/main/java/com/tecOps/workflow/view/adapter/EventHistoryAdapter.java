@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.tecOps.workflow.R;
-import com.tecOps.workflow.databinding.EventhistoryItemBinding;
+import com.tecOps.workflow.databinding.EventsHistoryBinding;
 import com.tecOps.workflow.view.EventDetails;
 import com.tecOps.workflow.viewModel.EventHistoryViewModel;
 
@@ -33,22 +33,23 @@ public class EventHistoryAdapter extends RecyclerView.Adapter<EventHistoryAdapte
         if(inflater == null){
             inflater = LayoutInflater.from(parent.getContext());
         }
-        EventhistoryItemBinding eventhistoryItemBinding = EventhistoryItemBinding.inflate(inflater, parent,false);
+        EventsHistoryBinding eventhistoryItemBinding = EventsHistoryBinding.inflate(inflater, parent,false);
         return new MyViewHolder(eventhistoryItemBinding);
     }
 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        holder.name.setText(events.get(position).toString());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-              Toast.makeText(context, events.get(position).toString(), Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(view.getContext(), EventDetails.class);
-                context.startActivity(i);
-            }
-        });
+//        holder.name.setText(events.get(position).toString());
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//              Toast.makeText(context, events.get(position).toString(), Toast.LENGTH_SHORT).show();
+//                Intent i = new Intent(view.getContext(), EventDetails.class);
+//                context.startActivity(i);
+//            }
+//        });
+        holder.bind(events.get(position));
     }
 
     @Override
@@ -57,12 +58,23 @@ public class EventHistoryAdapter extends RecyclerView.Adapter<EventHistoryAdapte
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView name;
-        TextView body;
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            name = itemView.findViewById(R.id.cardViewTitle);
-            body = itemView.findViewById(R.id.cardViewTitle);
+//        TextView name;
+//        TextView body;
+        private EventsHistoryBinding eventhistoryItemBinding;
+
+        public MyViewHolder(EventsHistoryBinding eventhistoryItemBinding) {
+            super(eventhistoryItemBinding.getRoot());
+            this.eventhistoryItemBinding = eventhistoryItemBinding;
+//            name = itemView.findViewById(R.id.cardViewTitle);
+//            body = itemView.findViewById(R.id.cardViewTitle);
+        }
+
+        public void bind(EventHistoryViewModel eventHistoryViewModel){
+            this.eventhistoryItemBinding.setEventHistoryViewModel(eventHistoryViewModel);
+        }
+
+        public EventsHistoryBinding getEventHistoryBinding() {
+            return eventhistoryItemBinding;
         }
     }
 }

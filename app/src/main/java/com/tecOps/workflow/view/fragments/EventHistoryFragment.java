@@ -14,12 +14,14 @@ import com.tecOps.workflow.R;
 import com.tecOps.workflow.databinding.ActivityEventDetailsBinding;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
+import com.tecOps.workflow.view.EventDetails;
 import com.tecOps.workflow.view.adapter.EventHistoryAdapter;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 import com.tecOps.workflow.viewModel.EventHistoryViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class EventHistoryFragment extends Fragment {
 
@@ -31,7 +33,8 @@ public class EventHistoryFragment extends Fragment {
     protected static ActivityEventDetailsBinding activityEventDetailsBinding;
 
 
-    ArrayList personNames = new ArrayList<>(Arrays.asList("Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7","Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14"));
+   // ArrayList personNames = new ArrayList<>(Arrays.asList("Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7","Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14"));
+    List<EventHistoryViewModel> events = new ArrayList<EventHistoryViewModel>();
 
     @Nullable
     @Override
@@ -45,21 +48,28 @@ public class EventHistoryFragment extends Fragment {
 
     private void InItDataBinding()
     {
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.eventHistoryListView);
+        recyclerView = rootView.findViewById(R.id.eventHistoryListView);
         layoutManager = new LinearLayoutManager(rootView.getContext());
         recyclerView.setLayoutManager(layoutManager);
-        EventHistoryAdapter mAdapter = new EventHistoryAdapter(getContext(), personNames);
+
+        EventHistoryViewModel eventHistoryViewModel = new EventHistoryViewModel();
+        eventHistoryViewModel.EventDetails="This is an Event!";
+        eventHistoryViewModel.EventTitle="Event01";
+        events.add(eventHistoryViewModel);
+
+
+        EventHistoryAdapter mAdapter = new EventHistoryAdapter(getContext(), events);
         recyclerView.setAdapter(mAdapter);
 
-        eventModel=new EventModel();
+//        eventModel=new EventModel();
 
-        eventHistoryViewModel=new EventHistoryViewModel(rootView.getContext(),eventModel);
-        activityEventDetailsBinding = DataBindingUtil.setContentView(this, R.layout.fragment_event_history);
-        activityEventDetailsBinding.setEventModel(eventModel);
-        EventRepository eventRepository=new EventRepository(this,eventModel) ;
-        eventRepository.sendPost("1");
+//        eventHistoryViewModel=new EventHistoryViewModel(rootView.getContext(),eventModel);
+//        activityEventDetailsBinding = DataBindingUtil.setContentView(this, R.layout.fragment_event_history);
+//        activityEventDetailsBinding.setEventModel(eventModel);
+//        EventRepository eventRepository=new EventRepository(this,eventModel) ;
+//        eventRepository.sendPost("1");
 
 
-        activityEventDetailsBinding.executePendingBindings();
+//        activityEventDetailsBinding.executePendingBindings();
     }
 }
