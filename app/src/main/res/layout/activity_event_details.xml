@@ -522,17 +522,17 @@
        </android.support.design.widget.CoordinatorLayout>
    </RelativeLayout>
 
-    <!--<android.support.design.widget.NavigationView-->
-        <!--android:id="@+id/nav_view"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="start"-->
-        <!--android:fitsSystemWindows="true"-->
-        <!--app:itemIconTint="@color/colorWhite"-->
-        <!--app:itemTextColor="@color/colorWhite"-->
-        <!--android:background="@drawable/navbackground"-->
-        <!--app:headerLayout="@layout/nav_header_event_details"-->
-        <!--app:menu="@menu/activity_event_details_drawer" />-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:itemIconTint="@color/colorWhite"
+        app:itemTextColor="@color/colorWhite"
+        android:background="@drawable/navbackground"
+        app:headerLayout="@layout/nav_header_event_details"
+        app:menu="@menu/activity_event_details_drawer" />
 
 </android.support.v4.widget.DrawerLayout>
 </layout>
