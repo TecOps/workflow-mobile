@@ -31,7 +31,7 @@ public class Calender extends EventDetails {
     private static Context context;
     private static CalendarView calendarView;
     private String TAG;
-
+   private static List<EventModel> empty = new ArrayList<>();;
     public Calender(Context context,CalendarView calendarView)
      {
          this.context=context;
@@ -53,6 +53,7 @@ public class Calender extends EventDetails {
 
     public void showEvents(List <EventModel>  event )
     {
+        List<Calendar> calendars = new ArrayList<>();
         List<EventDay> events = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
         for(EventModel ev:event){
@@ -63,11 +64,18 @@ public class Calender extends EventDetails {
             String day = parts[2];
 
             calendar = Calendar.getInstance();
-            events.add(new EventDay(calendar, R.drawable.tick));
+            if(ev.getEventStatus().equals("PUBLISHED")){
+            events.add(new EventDay(calendar, R.drawable.tick));}
+            if(ev.getEventStatus().equals("CONFIRMED")){
+            events.add(new EventDay(calendar, R.drawable.singletick));}
+            if (ev.getEventStatus().equals("PENDING")){
+                events.add(new EventDay(calendar, R.drawable.pending));}
+
+
             calendar.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
-
+            calendars.add(calendar);
         }
-
+        calendarView.setSelectedDates(calendars);
         calendarView.setEvents(events);
             try {
             calendarView.setDate(calendar);
@@ -76,9 +84,15 @@ public class Calender extends EventDetails {
             }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        activityEventDetailsBinding.recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView=  activityEventDetailsBinding.recyclerView;
+        recyclerView.setLayoutManager(linearLayoutManager);
         activityEventDetailsBinding.recyclerView.setAdapter(new EventAdapter(context, event));
     }
-
+    public static void emptyCalender(){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(new EventAdapter(context, empty));
+    }
 
 }

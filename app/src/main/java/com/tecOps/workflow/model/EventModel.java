@@ -10,6 +10,7 @@ import android.util.Log;
 import com.android.databinding.library.baseAdapters.BR;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.tecOps.workflow.R;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
@@ -43,7 +44,7 @@ public class EventModel extends BaseObservable {
     private String eventLocation;
     @SerializedName("eventCoordinatorDetails")
     @Expose
-    private List<Object> eventCoordinatorDetails = null;
+    private List<EventCoordinatorDetail> eventCoordinatorDetails = null;
     @SerializedName("eventParticipants")
     @Expose
     private String eventParticipants;
@@ -73,7 +74,7 @@ public class EventModel extends BaseObservable {
     private String eventlocationdate;
     private String textyear;
     private String textmonth;
-
+    private static String status="PENDING";
 
 
     private String day;
@@ -107,7 +108,7 @@ public class EventModel extends BaseObservable {
      * @param eventCoordinatorDetails
      * @param eventStatus
      */
-    public EventModel(Integer eventId, String eventName, String eventDate, String eventStartTime, String eventEndTime, String eventStatus, String eventLocation, List<Object> eventCoordinatorDetails, String eventParticipants, String eventBudget, String eventDescription, String eventApprovedStatus, String eventCreatedAt, String eventUpdatedAt) {
+    public EventModel(Integer eventId, String eventName, String eventDate, String eventStartTime, String eventEndTime, String eventStatus, String eventLocation, List<EventCoordinatorDetail> eventCoordinatorDetails, String eventParticipants, String eventBudget, String eventDescription, String eventApprovedStatus, String eventCreatedAt, String eventUpdatedAt) {
         super();
         this.eventId = eventId;
         this.eventName = eventName;
@@ -178,6 +179,7 @@ public class EventModel extends BaseObservable {
     public void setEventStatus(String eventStatus) {
         this.eventStatus = eventStatus;
         notifyPropertyChanged(BR.eventStatus);
+
     }
     @Bindable
     public String getEventLocation() {
@@ -186,20 +188,33 @@ public class EventModel extends BaseObservable {
 
     public void setEventLocation(String eventLocation) {
         this.eventLocation = eventLocation;
+
+    }
+    @Bindable
+    public String getEventCoordinators() {
+        String Cordinators="";
+        if (eventCoordinatorDetails!=null){
+
+
+        for(EventCoordinatorDetail ev:eventCoordinatorDetails){
+            Cordinators=Cordinators+" "+ev.getName()+"-"+ev.getImNumber();
+        }
+        }
+        return Cordinators;
     }
 
-    public List<Object> getEventCoordinatorDetails() {
-        return eventCoordinatorDetails;
+    public List<EventCoordinatorDetail>getEventCoordinatorDetails(){
+            return eventCoordinatorDetails;
     }
-
-    public void setEventCoordinatorDetails(List<Object> eventCoordinatorDetails) {
+    public void setEventCoordinatorDetails(List<EventCoordinatorDetail> eventCoordinatorDetails) {
         this.eventCoordinatorDetails = eventCoordinatorDetails;
+        notifyPropertyChanged(BR.eventCoordinators);
     }
-
+    @Bindable
     public String getEventParticipants() {
         return eventParticipants;
     }
-    @Bindable
+
     public void setEventParticipants(String eventParticipants) {
         this.eventParticipants = eventParticipants;
         notifyPropertyChanged(BR.eventParticipants);
@@ -316,5 +331,36 @@ public class EventModel extends BaseObservable {
         this.year = year;
     }
 
+    public void setStatus(String status){
+        this.status=status;
+        notifyPropertyChanged(BR.status);
+    }
+    @Bindable
+    public int getStatus(){
+
+        if (status.equals("PENDING"))
+        {
+            return R.drawable.pending;
+        }
+        if (status.equals("PUBLISHED"))
+        {
+            return R.drawable.tick;
+        }
+        if (status.equals("CONFIRMED"))
+        {
+            return R.drawable.singletick;
+        }
+//        if (status.equals("PENDING"))
+//        {
+//            return R.drawable.pending;
+//        }
+//        if (status.equals("PENDING"))
+//        {
+//            return R.drawable.pending;
+//        }
+        else
+            return R.drawable.pending;
+
+    }
 
 }
