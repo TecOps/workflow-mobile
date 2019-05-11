@@ -13,6 +13,7 @@ import com.tecOps.workflow.remote.ApiUtils;
 import com.tecOps.workflow.utils.ConvertDateAndTime;
 import com.tecOps.workflow.view.Calender;
 import com.tecOps.workflow.view.EventDetails;
+import com.tecOps.workflow.view.fragments.EventHistoryFragment;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
 import java.util.List;
@@ -95,6 +96,43 @@ public class EventRepository extends Observable {
                     if (!event.isEmpty()) {
                         Calender calender =new Calender();
                         calender.showEvents(event);
+                    }
+
+
+                }
+
+                if (response.isSuccessful()) {
+                    Log.i(TAG, "post submitted to API." + response.body().toString());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call <List<EventModel>>call, Throwable t) {
+                Toast.makeText(context, "Somthing went wrong!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public static void getEventHistory() {
+
+        mAPIService = ApiUtils.getEventAPIService();
+//        EventModel eventModel = new EventModel(month, year);
+        Call<List<EventModel>> call = mAPIService.getAllEvents();
+        call.enqueue(new Callback<List<EventModel>>() {
+            @Override
+            public void onResponse(Call <List<EventModel>> call, Response  <List<EventModel>> response) {
+                if (response.code() == 403) {
+                    //login_page.HideAnimation();
+                    Toast.makeText(context, "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
+                }
+                else if (response.code() == 200) {
+                    //login_page.HideAnimation();
+                    List <EventModel>  events = response.body();
+                    if (!events.isEmpty()) {
+                        EventHistoryFragment eventHistoryFragment = new EventHistoryFragment();
+                        eventHistoryFragment.SetData(events);
                     }
 
 

@@ -34,7 +34,7 @@ public class EventHistoryFragment extends Fragment {
 
 
    // ArrayList personNames = new ArrayList<>(Arrays.asList("Person 1", "Person 2", "Person 3", "Person 4", "Person 5", "Person 6", "Person 7","Person 8", "Person 9", "Person 10", "Person 11", "Person 12", "Person 13", "Person 14"));
-    List<EventHistoryViewModel> events = new ArrayList<EventHistoryViewModel>();
+    List<EventModel> events = new ArrayList<EventModel>();
 
     @Nullable
     @Override
@@ -45,17 +45,28 @@ public class EventHistoryFragment extends Fragment {
         return rootView;
     }
 
+    public void SetData(List<EventModel> events){
+
+    }
 
     private void InItDataBinding()
     {
+        eventModel = new EventModel();
         recyclerView = rootView.findViewById(R.id.eventHistoryListView);
         layoutManager = new LinearLayoutManager(rootView.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        EventHistoryViewModel eventHistoryViewModel = new EventHistoryViewModel();
-        eventHistoryViewModel.EventDetails="This is an Event!";
-        eventHistoryViewModel.EventTitle="Event01";
-        events.add(eventHistoryViewModel);
+//        EventHistoryViewModel eventHistoryViewModel = new EventHistoryViewModel();
+//        eventHistoryViewModel.EventDetails="This is an Event!";
+//        eventHistoryViewModel.EventTitle="Event01";
+//        events.add(eventHistoryViewModel);
+
+
+//        EventDetailsViewModel eventDetailsViewModel=new EventDetailsViewModel(this,eventModel);
+//        activityEventDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_event_details);
+//        activityEventDetailsBinding.setEventModel(eventModel);
+        EventRepository eventRepository=new EventRepository(rootView.getContext(),eventModel);
+        eventRepository.getEventHistory();
 
 
         EventHistoryAdapter mAdapter = new EventHistoryAdapter(getContext(), events);

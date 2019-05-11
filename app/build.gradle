@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.tecOps.workflow"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.tecOps.workflow.R;
 import com.tecOps.workflow.databinding.EventsHistoryBinding;
+import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.view.EventDetails;
 import com.tecOps.workflow.viewModel.EventHistoryViewModel;
 
@@ -18,10 +19,10 @@ import java.util.List;
 public class EventHistoryAdapter extends RecyclerView.Adapter<EventHistoryAdapter.MyViewHolder> {
 
     Context context;
-    List<EventHistoryViewModel> events;
+    List<EventModel> events;
     public LayoutInflater inflater;
 
-    public EventHistoryAdapter(Context context, List<EventHistoryViewModel> events) {
+    public EventHistoryAdapter(Context context, List<EventModel> events) {
         this.context = context;
         this.events = events;
     }

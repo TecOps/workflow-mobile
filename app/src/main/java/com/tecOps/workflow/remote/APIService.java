@@ -27,4 +27,7 @@ public interface APIService {
 
    @POST("/eventapi/events")
    Call<List<EventModel>>monthEvents(@Body EventModel monthEventModel);
+
+   @GET("/eventapi/events/all")
+   Call<List<EventModel>> getAllEvents();
 }
