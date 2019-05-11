@@ -6,8 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
-
 import com.android.databinding.library.baseAdapters.BR;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.tecOps.workflow.R;

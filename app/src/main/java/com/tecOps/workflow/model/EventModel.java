@@ -208,7 +208,7 @@ public class EventModel extends BaseObservable {
     }
     public void setEventCoordinatorDetails(List<EventCoordinatorDetail> eventCoordinatorDetails) {
         this.eventCoordinatorDetails = eventCoordinatorDetails;
-        notifyPropertyChanged(BR.eventCoordinators);
+//        notifyPropertyChanged(BR.eventCoordinators);
     }
     @Bindable
     public String getEventParticipants() {
@@ -333,7 +333,7 @@ public class EventModel extends BaseObservable {
 
     public void setStatus(String status){
         this.status=status;
-        notifyPropertyChanged(BR.status);
+//        notifyPropertyChanged(BR.status);
     }
     @Bindable
     public int getStatus(){
