@@ -20,14 +20,12 @@ public interface APIService {
    @POST("auth/signin")
    Call<LoginModel> loginPost(@Body LoginModel task);
 
-   @GET("/eventapi/events/{id}")
+   @GET("/event/{id}")
    Call <EventModel> eventGet(@Path("id") String id);
-//   @GET("")
-//   Call <EventModel> eventGet(@Path("") String id);
-
-   @POST("/eventapi/events")
-   Call<List<EventModel>>monthEvents(@Body EventModel monthEventModel);
 
    @GET("/eventapi/events/all")
    Call<List<EventModel>> getAllEvents();
+
+   @GET("/event/filter")
+   Call<List<EventModel>>filter(@Query("year") String year,@Query("month") String month);
 }

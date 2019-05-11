@@ -13,6 +13,7 @@ import android.support.annotation.RequiresApi;
 import com.android.databinding.library.baseAdapters.BR;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
+import com.tecOps.workflow.view.Calender;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +60,7 @@ private static List months;
         int nextYear= Integer.valueOf(year)-1;
         eventModel.setTextYear(String.valueOf(nextYear));
         this.year=String.valueOf(nextYear);
+
     }
 
     public void decreaseMonth(String month)
@@ -72,7 +74,9 @@ private static List months;
             eventModel.setTextMonth(nextMonrh);
             this.month= "0"+String.valueOf(monthIndex+1);
         }
+        Calender.emptyCalender();
         searchMonthEvents();
+
     }
     public void increaseMonth(String month)
     {
@@ -86,7 +90,9 @@ private static List months;
             eventModel.setTextMonth(preMonth);
             this.month= "0"+String.valueOf(monthIndex+1);
         }
+        Calender.emptyCalender();
         searchMonthEvents();
+
 
     }
 

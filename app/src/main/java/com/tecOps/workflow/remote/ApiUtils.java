@@ -5,8 +5,8 @@ public class ApiUtils {
     private ApiUtils() {
     }
 
-    public static final String BASE_URL = "http://192.168.1.101:8080/";
-//    public static final String BASE_URL = "http://tecops-backend.herokuapp.com/";
+
+    public static final String BASE_URL = "https://tecops-backend.herokuapp.com/";
 
     public static APIService getLoginAPIService() {
 
