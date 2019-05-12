@@ -23,6 +23,9 @@ public interface APIService {
    @GET("/event/{id}")
    Call <EventModel> eventGet(@Path("id") String id);
 
+   @GET("/eventapi/events/all")
+   Call<List<EventModel>> getAllEvents();
+
    @GET("/event/filter")
    Call<List<EventModel>>filter(@Query("year") String year,@Query("month") String month);
 }

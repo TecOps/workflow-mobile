@@ -23,14 +23,14 @@
     <string name="search_event">Search Event...</string>
 
     <string-array name="planets_array">
-            <item>2007</item>
-            <item>2008</item>
-            <item>2009</item>
-            <item>2010</item>
-            <item>2011</item>
-            <item>2012</item>
-            <item>2013</item>
-            <item>2014</item>
-        </string-array>
+        <item>2007</item>
+        <item>2008</item>
+        <item>2009</item>
+        <item>2010</item>
+        <item>2011</item>
+        <item>2012</item>
+        <item>2013</item>
+        <item>2014</item>
+    </string-array>
 
 </resources>

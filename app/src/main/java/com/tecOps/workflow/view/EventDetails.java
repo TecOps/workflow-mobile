@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +39,7 @@ import com.tecOps.workflow.databinding.ActivityEventDetailsBinding;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.remote.AppStatus;
 import com.tecOps.workflow.repository.EventRepository;
+import com.tecOps.workflow.view.fragments.EventHistoryFragment;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
 public class EventDetails extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RecyclerView.OnItemTouchListener {
@@ -186,7 +188,8 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_History) {
-            // Handle the camera action
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new EventHistoryFragment()).commit();
         } else if (id == R.id.nav_Calender) {
             slider.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED); //to open
         } else if (id == R.id.nav_Explorer) {
