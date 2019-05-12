@@ -58,6 +58,8 @@ public class EventRepository extends Observable {
                     eventModel.setEventParticipants(event.getEventParticipants());
                     eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails());
                     eventModel.setStatus(event.getEventStatus());
+                    eventModel.setShowConstraint(true);
+                    eventModel.setShowbuffer(false);
                 }
 
                 if (response.isSuccessful()) {
@@ -79,6 +81,9 @@ public class EventRepository extends Observable {
     }
 
     public static void searchMonthEvents(String year, String month) {
+
+
+
 
         mAPIService = ApiUtils.getEventAPIService();
         Call<List<EventModel>> call = mAPIService.filter(year,month);

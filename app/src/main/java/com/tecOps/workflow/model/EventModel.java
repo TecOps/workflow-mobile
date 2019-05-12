@@ -6,6 +6,7 @@ import android.app.TabActivity;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.util.Log;
+import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.google.gson.annotations.Expose;
@@ -75,8 +76,8 @@ public class EventModel extends BaseObservable {
     private String textyear;
     private String textmonth;
     private static String status="PENDING";
-
-
+    private boolean showConstraint=false;
+    private boolean showbuffer=true;
     private String day;
 
     public void setEventlocationdate(String eventlocationdate) {
@@ -350,17 +351,28 @@ public class EventModel extends BaseObservable {
         {
             return R.drawable.singletick;
         }
-//        if (status.equals("PENDING"))
-//        {
-//            return R.drawable.pending;
-//        }
-//        if (status.equals("PENDING"))
-//        {
-//            return R.drawable.pending;
-//        }
         else
             return R.drawable.pending;
 
     }
+    @Bindable
+    public int getShowConstraint() {
+        return showConstraint ? View.VISIBLE : View.GONE;
+    }
+    public void setShowConstraint(boolean showConstraint)
+    {
+        this.showConstraint=showConstraint;
+        notifyPropertyChanged(BR.showConstraint);
+    }
+    @Bindable
+    public int getShowbuffer()
+    {
+        return showbuffer ? View.VISIBLE : View.GONE;
+    }
 
+    public void setShowbuffer(boolean showbuffer)
+    {
+        this.showbuffer=showbuffer;
+        notifyPropertyChanged(BR.showbuffer);
+    }
 }

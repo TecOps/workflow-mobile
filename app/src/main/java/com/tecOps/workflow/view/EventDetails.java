@@ -3,6 +3,7 @@ package com.tecOps.workflow.view;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.graphics.drawable.Drawable;
@@ -35,6 +36,7 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.tecOps.workflow.R;
 import com.tecOps.workflow.databinding.ActivityEventDetailsBinding;
 import com.tecOps.workflow.model.EventModel;
+import com.tecOps.workflow.remote.AppStatus;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
@@ -44,7 +46,7 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
     protected static ActivityEventDetailsBinding activityEventDetailsBinding;
     private EventModel eventModel;
     protected static RecyclerView recyclerView;
-   public static SlidingUpPanelLayout  slider;
+    public static SlidingUpPanelLayout  slider;
     AppCompatButton btnCalendarup,btnCalendardown;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,15 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
                 slider.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
             }
         });
+        AppStatus appStatus=new AppStatus();
+
+        if ( !appStatus.isOnline(EventDetails.this)) {
+            Snackbar.make(drawer, "Check Your Connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+
+             }
+
+
     }
 
     private void slider() {
@@ -129,7 +140,7 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
         activityEventDetailsBinding = DataBindingUtil.setContentView(this, R.layout.activity_event_details);
         activityEventDetailsBinding.setEventModel(eventModel);
         EventRepository eventRepository=new EventRepository(this,eventModel) ;
-        eventRepository.sendPost("107");
+        eventRepository.sendPost("162");
 
 
         activityEventDetailsBinding.executePendingBindings();
