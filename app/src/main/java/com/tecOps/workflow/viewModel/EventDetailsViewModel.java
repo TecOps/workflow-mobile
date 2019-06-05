@@ -74,7 +74,7 @@ private static List months;
             eventModel.setTextMonth(nextMonrh);
             this.month= "0"+String.valueOf(monthIndex+1);
         }
-        Calender.emptyCalender();
+
         searchMonthEvents();
 
     }
@@ -90,7 +90,7 @@ private static List months;
             eventModel.setTextMonth(preMonth);
             this.month= "0"+String.valueOf(monthIndex+1);
         }
-        Calender.emptyCalender();
+
         searchMonthEvents();
 
 

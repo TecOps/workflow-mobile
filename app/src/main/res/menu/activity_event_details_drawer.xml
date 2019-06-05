@@ -16,9 +16,9 @@
             android:title="Events Calender" />
         <item
             android:iconTint="@color/colorWhite"
-            android:id="@+id/nav_Explorer"
+            android:id="@+id/DashBord"
             android:icon="@drawable/torch"
-            android:title="Event Explorer" />
+            android:title="DashBord" />
         <item
             android:iconTint="@color/colorWhite"
             android:id="@+id/nav_History"

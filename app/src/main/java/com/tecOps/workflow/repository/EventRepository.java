@@ -58,8 +58,9 @@ public class EventRepository extends Observable {
                     eventModel.setEventParticipants(event.getEventParticipants());
                     eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails());
                     eventModel.setStatus(event.getEventStatus());
-                    eventModel.setShowConstraint(true);
                     eventModel.setShowbuffer(false);
+                    eventModel.setShowConstraint(true);
+
                 }
 
                 if (response.isSuccessful()) {
@@ -97,12 +98,8 @@ public class EventRepository extends Observable {
                 else if (response.code() == 200) {
                     //login_page.HideAnimation();
                     List <EventModel>  event = response.body();
-                    if (!event.isEmpty()) {
                         Calender calender =new Calender();
                         calender.showEvents(event);
-                    }
-
-
                 }
 
                 if (response.isSuccessful()) {

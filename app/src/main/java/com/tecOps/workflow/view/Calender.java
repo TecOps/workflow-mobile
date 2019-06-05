@@ -1,10 +1,8 @@
 package com.tecOps.workflow.view;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-
-import com.tecOps.workflow.databinding.ActivityEventDetailsBinding;
-import com.tecOps.workflow.utils.DrawableUtils;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,17 +20,19 @@ import com.tecOps.workflow.R;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.view.adapter.EventAdapter;
+import com.tecOps.workflow.view.fragments.DashBordFragment;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class Calender extends EventDetails {
+public class Calender extends DashBordFragment {
     private static Context context;
     private static CalendarView calendarView;
     private String TAG;
    private static List<EventModel> empty = new ArrayList<>();;
-    public Calender(Context context,CalendarView calendarView)
+    @SuppressLint("ValidFragment")
+    public Calender(Context context, CalendarView calendarView)
      {
          this.context=context;
          this.calendarView=calendarView;
@@ -56,25 +56,28 @@ public class Calender extends EventDetails {
         List<Calendar> calendars = new ArrayList<>();
         List<EventDay> events = new ArrayList<>();
         Calendar calendar = Calendar.getInstance();
-        for(EventModel ev:event){
-            String date = ev.getEventDate();
-            String[] parts = date.split("-");
-            String year = parts[0];
-            String month = parts[1];
-            String day = parts[2];
+        if(!event.isEmpty()){
+            for(EventModel ev:event){
+                String date = ev.getEventDate();
+                String[] parts = date.split("-");
+                String year = parts[0];
+                String month = parts[1];
+                String day = parts[2];
 
-            calendar = Calendar.getInstance();
-            if(ev.getEventStatus().equals("PUBLISHED")){
-            events.add(new EventDay(calendar, R.drawable.tick));}
-            if(ev.getEventStatus().equals("CONFIRMED")){
-            events.add(new EventDay(calendar, R.drawable.singletick));}
-            if (ev.getEventStatus().equals("PENDING")){
-                events.add(new EventDay(calendar, R.drawable.pending));}
+                calendar = Calendar.getInstance();
+                if(ev.getEventStatus().equals("PUBLISHED")){
+                    events.add(new EventDay(calendar, R.drawable.tick));}
+                if(ev.getEventStatus().equals("CONFIRMED")){
+                    events.add(new EventDay(calendar, R.drawable.singletick));}
+                if (ev.getEventStatus().equals("PENDING")){
+                    events.add(new EventDay(calendar, R.drawable.pending));}
 
 
-            calendar.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
-            calendars.add(calendar);
+                calendar.set(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(day));
+                calendars.add(calendar);
+            }
         }
+
         calendarView.setSelectedDates(calendars);
         calendarView.setEvents(events);
             try {
@@ -84,9 +87,9 @@ public class Calender extends EventDetails {
             }
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView=  activityEventDetailsBinding.recyclerView;
+        recyclerView=  binding.recyclerView;
         recyclerView.setLayoutManager(linearLayoutManager);
-        activityEventDetailsBinding.recyclerView.setAdapter(new EventAdapter(context, event));
+        binding.recyclerView.setAdapter(new EventAdapter(context, event));
     }
     public static void emptyCalender(){
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);

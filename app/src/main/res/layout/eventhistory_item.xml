@@ -8,6 +8,8 @@
             type="com.tecOps.workflow.model.EventModel" />
     </data>
     <android.support.v7.widget.CardView
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cardView"
@@ -20,20 +22,22 @@
             android:orientation="vertical"
             android:padding="6dp">
             <TextView
+                android:fontFamily="@font/poppinsbold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cardViewTitle"
-                android:textSize="12dp"
+                android:textSize="16sp"
                 android:maxLines="1"
                 android:ellipsize="end"
                 android:text="@{eventModel.eventName}"
                 android:layout_marginBottom="2dp"/>
             <TextView
+                android:fontFamily="@font/poppinsregular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cardViewBody"
                 android:text="@{eventModel.eventDescription}"
-                android:textSize="10dp"
+                android:textSize="14sp"
                 android:maxLines="3"
                 android:minLines="1"/>
         </LinearLayout>

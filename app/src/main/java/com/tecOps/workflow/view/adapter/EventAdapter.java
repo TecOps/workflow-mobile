@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.android.databinding.library.baseAdapters.BR;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 import com.tecOps.workflow.R;
+import com.tecOps.workflow.databinding.FragmentDashbordBinding;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.utils.EventClickListener;
@@ -16,6 +17,8 @@ import com.tecOps.workflow.databinding.EventItemBinding;
 import com.tecOps.workflow.view.EventDetails;
 
 import java.util.List;
+
+import static com.tecOps.workflow.view.fragments.DashBordFragment.slider;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> implements EventClickListener {
     private List<EventModel> eventList;
@@ -52,7 +55,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     @Override
     public void cardClicked(EventModel f) {
         EventRepository.sendPost(f.getEventId().toString());
-        EventDetails.slider.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED); //to close slider
+        slider.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED); //to close slider
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
