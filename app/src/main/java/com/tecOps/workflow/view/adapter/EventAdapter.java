@@ -53,8 +53,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
     }
 
     @Override
-    public void cardClicked(EventModel f) {
-        EventRepository.sendPost(f.getEventId().toString());
+    public void cardClicked(EventModel event) {
+        EventRepository.updateDashbord(event);
         slider.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED); //to close slider
     }
 

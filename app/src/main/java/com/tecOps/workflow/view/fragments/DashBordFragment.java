@@ -28,16 +28,18 @@ import com.tecOps.workflow.remote.AppStatus;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.view.Calender;
 import com.tecOps.workflow.view.EventDetails;
+import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
 import static com.tecOps.workflow.view.EventDetails.drawer;
 
 public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemClickListener{
     private EventModel eventModel;
+   private static int eventId=162;
     public static SlidingUpPanelLayout  slider;
-   protected static FragmentDashbordBinding binding;
+    protected static FragmentDashbordBinding binding;
     AppCompatButton btnCalendarup,btnCalendardown;
     protected static RecyclerView recyclerView;
-
+    public static EventRepository eventRepository;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         eventModel = new EventModel();
@@ -69,7 +71,7 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
 
     private void Init()
     {
-        EventRepository eventRepository = new EventRepository(getContext(),eventModel);
+        eventRepository = new EventRepository(getContext(),eventModel);
         CalendarView calendarView = binding.getRoot().findViewById(R.id.calendarView);
         Calender calender=new Calender(getContext(),calendarView);
         eventRepository.sendPost("162");
@@ -130,7 +132,17 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
     public boolean onMenuItemClick(MenuItem item) {
         Toast.makeText(getContext(), "Selected Item: " +item.getTitle(), Toast.LENGTH_SHORT).show();
         switch (item.getItemId()) {
-            case R.id.action_settings:
+            case R.id.action_Delete:
+                 eventRepository.deleteEvent(EventRepository.eventId);
+                eventRepository.searchMonthEvents(EventDetailsViewModel.year,EventDetailsViewModel.month);
+                return true;
+            case R.id.action_approved:
+                // do your code
+                return true;
+            case R.id.action_rejected:
+                // do your code
+                return true;
+            case R.id.action_published:
                 // do your code
                 return true;
 

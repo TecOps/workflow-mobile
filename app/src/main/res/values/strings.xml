@@ -21,6 +21,8 @@
     <string name="default_message_loading_users">Press the button to load people!</string>
     <string name="github">Github</string>
     <string name="search_event">Search Event...</string>
+    <string name="approved">approved</string>
+    <string name="pending">Pending</string>
 
     <string-array name="planets_array">
         <item>2007</item>

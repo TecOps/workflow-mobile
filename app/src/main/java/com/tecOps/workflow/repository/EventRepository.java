@@ -29,8 +29,8 @@ public class EventRepository extends Observable {
     private static APIService mAPIService;
     private static Context context;
     private static EventModel eventModel;
-   static ConvertDateAndTime dateAndTime;
-
+    static ConvertDateAndTime dateAndTime;
+    public static int eventId;
     public EventRepository(Context context, EventModel eventModel) {
         this.context = context;
         this.eventModel = eventModel;
@@ -50,16 +50,10 @@ public class EventRepository extends Observable {
                     Toast.makeText(context, "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
                 } else if (response.code() == 200) {
                     //login_page.HideAnimation();
+
                     EventModel event = response.body();
-                    EventDetailsViewModel eventDetailsViewModel = new EventDetailsViewModel(context, eventModel);
-                    eventModel.setEventDescription(event.getEventDescription());
-                    eventModel.seteventlocationdate(dateAndTime.convertDate(event.getEventDate()) + " | " + dateAndTime.convertTime(event.getEventStartTime()) + " onwards | " + event.getEventLocation());
-                    eventModel.setEventName(event.getEventName());
-                    eventModel.setEventParticipants(event.getEventParticipants());
-                    eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails());
-                    eventModel.setStatus(event.getEventStatus());
-                    eventModel.setShowbuffer(false);
-                    eventModel.setShowConstraint(true);
+                    updateDashbord(event);
+
 
                 }
 
@@ -80,12 +74,20 @@ public class EventRepository extends Observable {
 
 
     }
-
+    public static void updateDashbord(EventModel event)
+    {
+        eventId=event.getEventId();
+        EventDetailsViewModel eventDetailsViewModel = new EventDetailsViewModel(context, eventModel);
+        eventModel.setEventDescription(event.getEventDescription());
+        eventModel.seteventlocationdate(dateAndTime.convertDate(event.getEventDate()) + " | " + dateAndTime.convertTime(event.getEventStartTime()) + " onwards | " + event.getEventLocation());
+        eventModel.setEventName(event.getEventName());
+        eventModel.setEventParticipants(event.getEventParticipants());
+        eventModel.setEventCoordinatorDetails(event.getEventCoordinatorDetails());
+        eventModel.setStatus(event.getEventStatus());
+        eventModel.setShowbuffer(false);
+        eventModel.setShowConstraint(true);
+    }
     public static void searchMonthEvents(String year, String month) {
-
-
-
-
         mAPIService = ApiUtils.getEventAPIService();
         Call<List<EventModel>> call = mAPIService.filter(year,month);
         call.enqueue(new Callback<List<EventModel>>() {
@@ -526,6 +528,22 @@ public class EventRepository extends Observable {
 
         EventHistoryFragment eventHistoryFragment = new EventHistoryFragment();
         eventHistoryFragment.SetData(events);
+    }
+
+    public static void deleteEvent(int eventId){
+        mAPIService = ApiUtils.getEventAPIService();
+        Call<String> call = mAPIService.deleteEvent(eventId);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Toast.makeText(context, response.body(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+
+            }
+        });
     }
 }
 

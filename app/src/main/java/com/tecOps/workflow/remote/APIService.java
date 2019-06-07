@@ -10,6 +10,7 @@ import com.tecOps.workflow.model.LoginModel;
 import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -28,4 +29,8 @@ public interface APIService {
 
    @GET("/event/filter")
    Call<List<EventModel>>filter(@Query("year") String year,@Query("month") String month);
+
+   @DELETE("event/{evenetId}")
+   Call <String> deleteEvent(@Path("evenetId") int evenetId);
+
 }

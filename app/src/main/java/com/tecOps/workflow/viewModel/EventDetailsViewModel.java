@@ -23,8 +23,8 @@ import java.util.List;
 public class EventDetailsViewModel extends BaseObservable {
 private static EventModel eventModel;
 public Context context;
-private static String month;
-private static String year;
+public static String month;
+public static String year;
 private static EventRepository eventRepository;
 private static final String[] dfs =  {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 private static List months;
