@@ -1,5 +1,6 @@
 package com.tecOps.workflow.viewModel;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
@@ -14,6 +15,7 @@ import com.android.databinding.library.baseAdapters.BR;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.view.Calender;
+import com.tecOps.workflow.view.fragments.AddEventFragment;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +37,7 @@ private static List months;
           this.context=context;
           months = Arrays.asList(dfs);
           eventRepository=new EventRepository(context,eventModel);
-            Calendar c = Calendar.getInstance();
+          Calendar c = Calendar.getInstance();
         this.year =String.valueOf(c.get(Calendar.YEAR)) ;
          int monthInt =c.get(Calendar.MONTH) ;
 
@@ -101,5 +103,7 @@ private static List months;
         eventRepository.searchMonthEvents(this.year,this.month);
 
     }
+
+
 
 }

@@ -8,12 +8,22 @@ public class EventCoordinatorDetail {
     @SerializedName("imNumber")
     @Expose
     private String imNumber;
+
+
+
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("coordinatorUId")
     @Expose
     private Integer coordinatorUId;
+
+
+    public EventCoordinatorDetail(String imNumber, String name) {
+        this.imNumber = imNumber;
+        this.name = name;
+    }
+
 
     public String getImNumber() {
         return imNumber;

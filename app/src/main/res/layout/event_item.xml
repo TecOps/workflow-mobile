@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:onClick="@{() -> eventClickListener.cardClicked(eventModel)}"
         app:cardUseCompatPadding="false">
-<RelativeLayout
+ <RelativeLayout
     android:background="@drawable/event_card_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">

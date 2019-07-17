@@ -32,14 +32,15 @@ import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
 import static com.tecOps.workflow.view.EventDetails.drawer;
 
-public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemClickListener{
+public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemClickListener, EventRepository.EventResponses {
     private EventModel eventModel;
-   private static int eventId=162;
+    private static int eventId=162;
     public static SlidingUpPanelLayout  slider;
     protected static FragmentDashbordBinding binding;
     AppCompatButton btnCalendarup,btnCalendardown;
     protected static RecyclerView recyclerView;
     public static EventRepository eventRepository;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         eventModel = new EventModel();
@@ -47,6 +48,7 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
         binding.setEventModel(eventModel);
         AppStatus appStatus=new AppStatus();
         RelativeLayout baseLayout=binding.getRoot().findViewById(R.id.baseRalative);
+
         if ( !appStatus.isOnline(getContext())) {
             baseLayout.setVisibility(View.GONE);
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -74,7 +76,7 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
         eventRepository = new EventRepository(getContext(),eventModel);
         CalendarView calendarView = binding.getRoot().findViewById(R.id.calendarView);
         Calender calender=new Calender(getContext(),calendarView);
-        eventRepository.sendPost("162");
+        eventRepository.sendPost("260", (EventRepository.EventResponses) getActivity());
         slider();
 
 
@@ -149,5 +151,21 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
             default:
                 return false;
         }
+    }
+
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailure() {
+
+    }
+
+    @Override
+    public void onPermissionFailure() {
+
     }
 }

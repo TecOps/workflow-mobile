@@ -72,6 +72,11 @@ public class EventModel extends BaseObservable {
     private String year;
 
 
+    @SerializedName("eventOrganizer")
+    @Expose
+    private String eventOrganizer;
+
+
     private String eventlocationdate;
     private String textyear;
     private String textmonth;
@@ -129,6 +134,21 @@ public class EventModel extends BaseObservable {
     public EventModel(String month, String year) {
         this.month = month;
         this.year = year;
+    }
+    public EventModel(String eventName, String eventDate, String eventStartTime, String eventEndTime, String eventLocation, String eventParticipants, String eventBudget, String eventDescription,String eventOrganizer,List<EventCoordinatorDetail> eventCoordinatorDetails){
+        this.eventName=eventName;
+        this.eventDate=eventDate;
+        this.eventStartTime=eventStartTime;
+        this.eventEndTime=eventEndTime;
+        this.eventLocation=eventLocation;
+        this.eventParticipants=eventParticipants;
+        this.eventBudget=eventBudget;
+        this.eventDescription=eventDescription;
+        this.eventOrganizer=eventOrganizer;
+        this.eventCoordinatorDetails=eventCoordinatorDetails;
+
+
+
     }
 
     public Integer getEventId() {
@@ -374,5 +394,15 @@ public class EventModel extends BaseObservable {
     {
         this.showbuffer=showbuffer;
         notifyPropertyChanged(BR.showbuffer);
+    }
+
+    @Bindable
+    public String getEventOrganizer() {
+        return eventOrganizer;
+    }
+
+    public void setEventOrganizer(String eventOrganizer) {
+        this.eventOrganizer = eventOrganizer;
+        notifyPropertyChanged(BR.eventOrganizer);
     }
 }

@@ -16,15 +16,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.tecOps.workflow.R;
+import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.remote.AppStatus;
+import com.tecOps.workflow.repository.EventRepository;
+import com.tecOps.workflow.view.fragments.AddEventFragment;
 import com.tecOps.workflow.view.fragments.DashBordFragment;
 import com.tecOps.workflow.view.fragments.EventHistoryFragment;
 
-public class EventDetails extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,RecyclerView.OnItemTouchListener {
- public static NavigationView navigationView;
-    public static  DrawerLayout drawer;
+public class EventDetails extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener
+        ,RecyclerView.OnItemTouchListener
+        , EventRepository.EventResponses {
+        public static NavigationView navigationView;
+        public static  DrawerLayout drawer;
 
 
     @Override
@@ -46,12 +53,8 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
 
     }
 
@@ -105,6 +108,8 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                     new DashBordFragment()).commit();
         } else if (id == R.id.nav_newEvent) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new AddEventFragment()).commit();
 
         } else if (id == R.id.nav_settings) {
 
@@ -165,5 +170,20 @@ public class EventDetails extends AppCompatActivity implements NavigationView.On
     @BindingAdapter("app:srcVector")
     public static void setSrcVector(ImageView view, @DrawableRes int drawable) {
         view.setImageResource(drawable);
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onFailure() {
+
+    }
+
+    @Override
+    public void onPermissionFailure() {
+        Toast.makeText(getApplicationContext(), "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
     }
 }

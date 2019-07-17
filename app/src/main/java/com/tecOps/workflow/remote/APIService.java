@@ -33,4 +33,7 @@ public interface APIService {
    @DELETE("event/{evenetId}")
    Call <String> deleteEvent(@Path("evenetId") int evenetId);
 
+   @POST("event/")
+   Call<EventModel> addNewEvent(@Body EventModel eventModel);
+
 }

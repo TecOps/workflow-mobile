@@ -23,6 +23,7 @@
     <string name="search_event">Search Event...</string>
     <string name="approved">approved</string>
     <string name="pending">Pending</string>
+    <string name="save">Save</string>
 
     <string-array name="planets_array">
         <item>2007</item>

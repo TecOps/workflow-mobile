@@ -38,7 +38,7 @@ public class EventRepository extends Observable {
 
     }
 
-    public static void sendPost(String id) {
+    public static void sendPost(String id,EventResponses eventResponses) {
 
         mAPIService = ApiUtils.getEventAPIService();
         Call<EventModel> call = mAPIService.eventGet(id);
@@ -47,7 +47,8 @@ public class EventRepository extends Observable {
             public void onResponse(Call<EventModel> call, Response<EventModel> response) {
                 if (response.code() == 403) {
                     //login_page.HideAnimation();
-                    Toast.makeText(context, "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
+                    eventResponses.onPermissionFailure();
+//                    Toast.makeText(context, "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
                 } else if (response.code() == 200) {
                     //login_page.HideAnimation();
 
@@ -86,6 +87,7 @@ public class EventRepository extends Observable {
         eventModel.setStatus(event.getEventStatus());
         eventModel.setShowbuffer(false);
         eventModel.setShowConstraint(true);
+        eventModel.setEventOrganizer(event.getEventOrganizer());
     }
     public static void searchMonthEvents(String year, String month) {
         mAPIService = ApiUtils.getEventAPIService();
@@ -544,6 +546,12 @@ public class EventRepository extends Observable {
 
             }
         });
+    }
+
+    public interface EventResponses{
+        public void onSuccess();
+        public void onFailure();
+        public void onPermissionFailure();
     }
 }
 

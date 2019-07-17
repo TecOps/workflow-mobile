@@ -76,7 +76,8 @@ public class LoginViewModel extends BaseObservable {
             //  login_page.ShowAnimation();
           }
       }else {
-          Toast.makeText(context,"Please check your Internet Connection", Toast.LENGTH_SHORT).show();
+          setToastMessage("Please check your Internet Connection");
+          //Toast.makeText(context,"Please check your Internet Connection", Toast.LENGTH_SHORT).show();
 
       }
 
