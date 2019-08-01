@@ -36,9 +36,9 @@ public class DashBordFragment extends Fragment implements PopupMenu.OnMenuItemCl
     private EventModel eventModel;
     private static int eventId=162;
     public static SlidingUpPanelLayout  slider;
-    protected static FragmentDashbordBinding binding;
+    public static FragmentDashbordBinding binding;
     AppCompatButton btnCalendarup,btnCalendardown;
-    protected static RecyclerView recyclerView;
+    public static RecyclerView recyclerView,recyclerView2;
     public static EventRepository eventRepository;
 
     @Override

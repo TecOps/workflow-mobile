@@ -2,14 +2,18 @@ package com.tecOps.workflow.repository;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.widget.Toast;
 import com.tecOps.workflow.model.EventCoordinatorDetail;
+import com.tecOps.workflow.model.EventInspectorDetail;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.remote.APIService;
 import com.tecOps.workflow.remote.ApiUtils;
 import com.tecOps.workflow.utils.ConvertDateAndTime;
 import com.tecOps.workflow.view.Calender;
+import com.tecOps.workflow.view.adapter.InspectAdapter;
+import com.tecOps.workflow.view.fragments.DashBordFragment;
 import com.tecOps.workflow.view.fragments.EventHistoryFragment;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 import java.util.ArrayList;
@@ -88,6 +92,15 @@ public class EventRepository extends Observable {
         eventModel.setShowbuffer(false);
         eventModel.setShowConstraint(true);
         eventModel.setEventOrganizer(event.getEventOrganizer());
+
+        List<EventInspectorDetail> inspectors = new ArrayList<>();
+        inspectors=  event.getEventInspectorDetails();
+
+        LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(context);
+        linearLayoutManager2.setOrientation(LinearLayoutManager.VERTICAL);
+        DashBordFragment.recyclerView2=  DashBordFragment.binding.recyclerViewStatus;
+        DashBordFragment.recyclerView2.setLayoutManager(linearLayoutManager2);
+        DashBordFragment.binding.recyclerViewStatus.setAdapter(new InspectAdapter(context, inspectors));
     }
     public static void searchMonthEvents(String year, String month) {
         mAPIService = ApiUtils.getEventAPIService();
@@ -121,46 +134,6 @@ public class EventRepository extends Observable {
     }
 
     public static void getEventHistory() {
-
-        /**
-         * This is only a hardcoded List<>. This should be refactored with below code after the API avaliable.
-
-         @param
-         #
-         mAPIService = ApiUtils.getEventAPIService();
-         Call<List<EventModel>> call = mAPIService.getAllEvents();
-         call.enqueue(new Callback<List<EventModel>>() {
-         @Override
-         public void onResponse(Call <List<EventModel>> call, Response  <List<EventModel>> response) {
-         if (response.code() == 403) {
-         //login_page.HideAnimation();
-         Toast.makeText(context, "Your UserName or Password might be wrong!", Toast.LENGTH_SHORT).show();
-         }
-         else if (response.code() == 200) {
-         //login_page.HideAnimation();
-         List <EventModel>  events = response.body();
-         if (!events.isEmpty()) {
-         EventHistoryFragment eventHistoryFragment = new EventHistoryFragment();
-         eventHistoryFragment.SetData(events);
-         }
-
-
-         }
-
-         if (response.isSuccessful()) {
-         Log.i(TAG, "post submitted to API." + response.body().toString());
-
-         }
-
-         }
-
-         @Override
-         public void onFailure(Call <List<EventModel>>call, Throwable t) {
-         Toast.makeText(context, "Somthing went wrong!", Toast.LENGTH_SHORT).show();
-         }
-         });
-
-         */
 
         EventModel eventModel1 = new EventModel(1, "Piritha", "", "", "", "", "", new List<EventCoordinatorDetail>() {
             @Override

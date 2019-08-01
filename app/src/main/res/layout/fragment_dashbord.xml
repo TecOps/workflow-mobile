@@ -48,6 +48,7 @@
 
 
                 <RelativeLayout
+                    android:id="@+id/relativeLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:foregroundGravity="center_vertical"
@@ -141,7 +142,6 @@
                                         android:layout_alignParentStart="true"
                                         android:layout_alignParentTop="true"
                                         android:layout_alignParentEnd="true"
-                                        android:layout_marginTop="10dp"
                                         android:layout_marginStart="8dp"
                                         android:layout_marginEnd="-18dp"
                                         android:adjustViewBounds="true"
@@ -169,15 +169,18 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
+                                        android:layout_marginTop="8dp"
                                         android:layout_marginEnd="8dp"
+                                        android:layout_marginBottom="10dp"
+
                                         android:fontFamily="@font/poppinsmedium"
                                         android:text="@{eventModel.eventlocationdate}"
                                         android:textAlignment="viewStart"
-                                        android:textSize="12sp"
-                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintBottom_toBottomOf="@+id/divider"
                                         app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.501"
                                         app:layout_constraintStart_toEndOf="@+id/tickIcon"
-                                        app:layout_constraintTop_toBottomOf="@+id/txtEventtitle"
+                                        app:layout_constraintTop_toBottomOf="@+id/btnShow"
                                         app:layout_constraintVertical_bias="0.0" />
 
                                     <View
@@ -185,10 +188,11 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="8dp"
-                                        android:layout_marginTop="16dp"
+                                        android:layout_marginTop="12dp"
                                         android:layout_marginEnd="8dp"
                                         android:background="?android:attr/listDivider"
                                         app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/txtEventtitle" />
 
@@ -205,8 +209,10 @@
                                         android:textStyle="bold"
                                         app:layout_constraintBottom_toTopOf="@+id/txtCordinators"
                                         app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
                                         app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/txtDateTimeVenue" />
+                                        app:layout_constraintTop_toBottomOf="@+id/txtDateTimeVenue"
+                                        app:layout_constraintVertical_bias="0.0" />
 
                                     <TextView
                                         android:id="@+id/txtCordinators"
@@ -262,86 +268,65 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginEnd="271dp"
                                         android:layout_marginBottom="8dp"
-                                        android:text="Approved By--"
+                                        android:text="Inspect By--"
                                         android:textColor="@color/colorPrimary"
                                         android:textSize="12sp"
                                         android:textStyle="bold"
-                                        app:layout_constraintBottom_toTopOf="@+id/userIconLarge"
                                         app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/txtDescriptionData" />
 
                                     <TextView
                                         android:id="@+id/txtOrganizeData"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="8dp"
-                                        android:layout_marginTop="12dp"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_marginTop="16dp"
                                         android:fontFamily="@font/poppinsmedium"
                                         android:text="@{eventModel.eventOrganizer}"
                                         android:textSize="12sp"
                                         android:textStyle="bold"
                                         app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.04"
+                                        app:layout_constraintHorizontal_bias="0.041"
                                         app:layout_constraintStart_toEndOf="@+id/txtOrganize"
                                         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
                                     <TextView
                                         android:id="@+id/txtCordinatorsData"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="12dp"
+                                        android:layout_marginStart="5dp"
+                                        android:layout_marginTop="10dp"
                                         android:text="@{eventModel.eventCoordinators}"
+                                        android:textAlignment="textStart"
                                         android:textSize="12sp"
                                         android:textStyle="bold"
                                         app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.07"
+                                        app:layout_constraintHorizontal_bias="0.169"
                                         app:layout_constraintStart_toEndOf="@+id/txtCordinators"
                                         app:layout_constraintTop_toBottomOf="@+id/txtOrganizeData" />
 
                                     <TextView
                                         android:id="@+id/txtParticipantsData"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
 
-                                        android:layout_marginTop="8dp"
+                                        android:layout_marginStart="18dp"
+                                        android:layout_marginTop="12dp"
                                         android:fontFamily="@font/poppinsmedium"
                                         android:text="@{eventModel.eventParticipants}"
                                         android:textSize="12sp"
                                         android:textStyle="bold"
                                         app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.11"
+                                        app:layout_constraintHorizontal_bias="1.0"
                                         app:layout_constraintStart_toEndOf="@+id/txtParticipants"
                                         app:layout_constraintTop_toBottomOf="@+id/txtCordinatorsData" />
 
-                                    <TextView
-                                        android:id="@+id/txtApprovedName"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="18dp"
-                                        android:layout_marginTop="16dp"
-                                        android:text="Ruwan Wicramarachchi"
-                                        android:textSize="14sp"
-                                        app:layout_constraintBottom_toTopOf="@+id/txtApprovedPosition"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.13"
-                                        app:layout_constraintStart_toEndOf="@+id/userIconLarge"
-                                        app:layout_constraintTop_toBottomOf="@+id/txtApprovedBy" />
-
-                                    <TextView
-                                        android:id="@+id/txtApprovedPosition"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="18dp"
-                                        android:text="HOD"
-                                        android:textSize="12sp"
-                                        android:textStyle="bold"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.08"
-                                        app:layout_constraintStart_toEndOf="@+id/userIconLarge"
-                                        app:layout_constraintTop_toBottomOf="@+id/txtApprovedName" />
 
                                     <TextView
                                         android:id="@+id/txtDescriptionData"
-                                        android:layout_width="wrap_content"
+                                        android:layout_width="0dp"
                                         android:layout_height="wrap_content"
                                         android:layout_marginBottom="10dp"
                                         android:fontFamily="@font/poppinsmedium"
@@ -355,18 +340,20 @@
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
 
-                                    <ImageView
-                                        android:id="@+id/userIconLarge"
-                                        android:layout_width="wrap_content"
+                                    <android.support.v7.widget.RecyclerView
+                                        android:id="@+id/recyclerViewStatus"
+                                        android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="8dp"
-                                        android:layout_marginEnd="8dp"
-                                        android:background="@color/colorWhite"
-                                        android:src="@drawable/user_icon_sample"
-                                        app:layout_constraintEnd_toEndOf="parent"
-                                        app:layout_constraintHorizontal_bias="0.028"
-                                        app:layout_constraintStart_toStartOf="parent"
-                                        app:layout_constraintTop_toBottomOf="@+id/txtApprovedBy" />
+                                        android:layout_marginTop="20dp"
+                                        android:layout_marginBottom="8dp"
+                                        android:background="@null"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintLeft_toLeftOf="parent"
+                                        app:layout_constraintRight_toRightOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@+id/txtApprovedBy"
+                                        app:layout_constraintVertical_bias="0.0" />
+
 
                                 </android.support.constraint.ConstraintLayout>
 

@@ -17,9 +17,11 @@ import com.applandeo.materialcalendarview.CalendarView;
 import com.applandeo.materialcalendarview.EventDay;
 import com.applandeo.materialcalendarview.exceptions.OutOfDateRangeException;
 import com.tecOps.workflow.R;
+import com.tecOps.workflow.model.EventCoordinatorDetail;
 import com.tecOps.workflow.model.EventModel;
 import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.view.adapter.EventAdapter;
+import com.tecOps.workflow.view.adapter.InspectAdapter;
 import com.tecOps.workflow.view.fragments.DashBordFragment;
 
 import java.util.ArrayList;
@@ -55,6 +57,8 @@ public class Calender extends DashBordFragment {
     {
         List<Calendar> calendars = new ArrayList<>();
         List<EventDay> events = new ArrayList<>();
+
+
         Calendar calendar = Calendar.getInstance();
         if(!event.isEmpty()){
             for(EventModel ev:event){
@@ -90,12 +94,9 @@ public class Calender extends DashBordFragment {
         recyclerView=  binding.recyclerView;
         recyclerView.setLayoutManager(linearLayoutManager);
         binding.recyclerView.setAdapter(new EventAdapter(context, event));
+
+
     }
-    public static void emptyCalender(){
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(new EventAdapter(context, empty));
-    }
+
 
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <data>
+        <variable
+            name="eventModel"
+            type="com.tecOps.workflow.model.EventInspectorDetail" />
+
+    </data>
+
+    <android.support.v7.widget.CardView
+
+        android:layout_marginTop="5dp"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        card_view:cardPreventCornerOverlap="false"
+        card_view:cardBackgroundColor="@android:color/transparent"
+        android:layout_width="match_parent"
+        app:cardElevation="0dp"
+        android:layout_height="wrap_content"
+       >
+        <RelativeLayout
+            android:background="@color/modal_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="5dp"
+                android:contentDescription="@string/nav_header_desc"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:paddingBottom="@dimen/nav_header_vertical_spacing"
+                android:src="@drawable/akalanka"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="1dp" />
+
+            <LinearLayout
+                android:background="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/profile_image"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:textColor="@color/colorTextinput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="@{eventModel.name}"
+                   />
+
+
+                <TextView
+                    android:id="@+id/status"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorTextinput"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="@{eventModel.designation}"
+                    />
+
+
+                <TextView
+                    android:id="@+id/name"
+                    android:textColor="@color/colorPrimary"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="12sp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="@{eventModel.status}"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

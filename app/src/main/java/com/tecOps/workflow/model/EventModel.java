@@ -2,17 +2,14 @@
 
 package com.tecOps.workflow.model;
 
-import android.app.TabActivity;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.util.Log;
 import android.view.View;
 
 import com.android.databinding.library.baseAdapters.BR;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.tecOps.workflow.R;
-import com.tecOps.workflow.repository.EventRepository;
 import com.tecOps.workflow.viewModel.EventDetailsViewModel;
 
 
@@ -76,6 +73,10 @@ public class EventModel extends BaseObservable {
     @Expose
     private String eventOrganizer;
 
+    @SerializedName("eventInspectorDetails")
+    @Expose
+    private List<EventInspectorDetail> eventInspectorDetails = null;
+
 
     private String eventlocationdate;
     private String textyear;
@@ -88,32 +89,9 @@ public class EventModel extends BaseObservable {
     public void setEventlocationdate(String eventlocationdate) {
         this.eventlocationdate = eventlocationdate;
     }
-
-
-    /**
-     * No args constructor for use in serialization
-     *
-     */
     public EventModel() {
     }
 
-    /**
-     *
-     * @param eventUpdatedAt
-     * @param eventLocation
-     * @param eventDate
-     * @param eventDescription
-     * @param eventParticipants
-     * @param eventId
-     * @param eventEndTime
-     * @param eventBudget
-     * @param eventCreatedAt
-     * @param eventStartTime
-     * @param eventName
-     * @param eventApprovedStatus
-     * @param eventCoordinatorDetails
-     * @param eventStatus
-     */
     public EventModel(Integer eventId, String eventName, String eventDate, String eventStartTime, String eventEndTime, String eventStatus, String eventLocation, List<EventCoordinatorDetail> eventCoordinatorDetails, String eventParticipants, String eventBudget, String eventDescription, String eventApprovedStatus, String eventCreatedAt, String eventUpdatedAt) {
         super();
         this.eventId = eventId;
@@ -130,6 +108,7 @@ public class EventModel extends BaseObservable {
         this.eventApprovedStatus = eventApprovedStatus;
         this.eventCreatedAt = eventCreatedAt;
         this.eventUpdatedAt = eventUpdatedAt;
+
     }
     public EventModel(String month, String year) {
         this.month = month;
@@ -146,8 +125,6 @@ public class EventModel extends BaseObservable {
         this.eventDescription=eventDescription;
         this.eventOrganizer=eventOrganizer;
         this.eventCoordinatorDetails=eventCoordinatorDetails;
-
-
 
     }
 
@@ -402,7 +379,15 @@ public class EventModel extends BaseObservable {
     }
 
     public void setEventOrganizer(String eventOrganizer) {
-        this.eventOrganizer = eventOrganizer;
+        this.eventOrganizer = "Level 0"+eventOrganizer;
         notifyPropertyChanged(BR.eventOrganizer);
+    }
+
+    public List<EventInspectorDetail> getEventInspectorDetails() {
+        return eventInspectorDetails;
+    }
+
+    public void setEventInspectorDetails(List<EventInspectorDetail> eventInspectorDetails) {
+        this.eventInspectorDetails = eventInspectorDetails;
     }
 }

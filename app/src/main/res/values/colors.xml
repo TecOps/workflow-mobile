@@ -9,4 +9,5 @@
     <color name="colorbackground">#E6F5F3F3</color>
     <color name="colorcalenderhedder">#7E1FC4BC</color>
     <color name="colorHeader">#357778</color>
+    <color name="modal_background" type="color">#00000000</color>
 </resources>
